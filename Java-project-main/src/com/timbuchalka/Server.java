@@ -1,5 +1,8 @@
 package com.timbuchalka;
 
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
+import javax.script.ScriptException;
 import java.io.*;
 import java.net.*;
 import java.util.*;
@@ -48,19 +51,20 @@ class ClientHandler implements Runnable {
         }
         return question;
     }
-
     public void run() {
         String message;
         int count = 0;
-        int point = 0 ;
+        int point = 0;
         try {
             while (true){
-                message = input.readLine();
                 String question = newEquation();
                 output.println(question);
+                message = input.readLine();
+
                 for (ClientHandler client : clients) {
-                    client.output.println("Client answered " + (count+1) + "question from " + (10));
+                    client.output.println("Client answered " + (count+1) + "question");
                     count+= 1;
+
                 }
 
             }
