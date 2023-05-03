@@ -62,16 +62,17 @@ class ClientHandler implements Runnable {
                 Random random = new Random();
                 int index = random.nextInt(12);
                 String[] question = quiz[index];
-                output.println(question[0]);
+                output.println('\n'+ question[0]);
                 message = input.readLine();
                 for (ClientHandler client : clients) {
-                    client.output.println("\nClient answered " + (count+1) + "question");
+                    client.output.println("\n Tour answer is " + (message));
+                    client.output.println("\nClient answered a question");
                     count+= 1;
                     count++;
                     if ( message.equalsIgnoreCase(question[1]) ){
                         point+= 1;
                         client.output.println("\nCorrect , you have " + (point) + " point");
-                    }
+                    }else{ client.output.println("\n Wrong");}
                 }
 
 
