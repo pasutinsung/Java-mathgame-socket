@@ -71,8 +71,8 @@ class ClientHandler implements Runnable {
                     count++;
                     if ( message.equalsIgnoreCase(question[1]) ){
                         point+= 1;
-                        client.output.println("\nCorrect , you have " + (point) + " point");
-                    }else{ client.output.println("\n Wrong");}
+                        client.output.println("\nCorrect +1 point , you now have " + (point) + " point");
+                    }else{ client.output.println("\n Wrong you have" + point );}
                 }
 
 
